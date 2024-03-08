@@ -70,6 +70,23 @@ const Styling = StyleSheet.create({
     color: 'white',
     fontSize: 16,
   },
+  modalContainer: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  popup: {
+    backgroundColor: 'white',
+    padding: 20,
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  popupText: {
+    fontSize: 20,
+    marginTop: 10,
+    color: 'green',
+  },
   });
 
   export default Styling;
