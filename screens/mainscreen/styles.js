@@ -1,5 +1,6 @@
 import { StyleSheet, Dimensions} from 'react-native';
 var width = Dimensions.get('window').width; 
+var height = Dimensions.get('window').height; 
 const Styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -9,27 +10,28 @@ const Styles = StyleSheet.create({
       },
       imageContainer: {
         flex: 1,
-        width: '90%',
         justifyContent: 'center',
         alignItems: 'center',
       },
       image: {
+        width:400,
         margin:15,
-        width: '100%', // Täcker halva skärmen i längd
-        aspectRatio: 1, // Behåll aspect ratio för bilden
-            flex: 0.3,
+        height:500,
       
             borderTopLeftRadius: 80,
             borderTopRightRadius: 80,
   
       },
       contentContainer: {
-        flex: 1,
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
+        
+       
+     
+        
+        borderRadius:25,
+        backgroundColor:'#4442'
       },
       heading: {
+        alignContent:'center',
         fontSize: 25,
         fontWeight:'800',
        textAlign:'center',
