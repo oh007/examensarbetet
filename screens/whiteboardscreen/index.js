@@ -24,7 +24,6 @@ export default function Whiteboard() {
     toggleInput();
     setShowPopup(true);
     console.log('Innehåll sparades:', whiteboardContent);
-    Keyboard.dismiss();
   };
 
   const closePopup = () => {
@@ -42,7 +41,6 @@ export default function Whiteboard() {
             value={whiteboardContent}
             onChangeText={text => setWhiteboardContent(text)}
             style={Styling.whiteboardInput}
-            onBlur={Keyboard.dismiss} 
           />
           <TouchableOpacity onPress={saveWhiteboardContent} style={Styling.saveButton}>
             <Text style={Styling.saveButtonText}>Spara</Text>
@@ -55,36 +53,43 @@ export default function Whiteboard() {
   };
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={Styling.container}>
-        {!showInput && (
-          <TouchableOpacity style={Styling.plusButton} onPress={toggleOverlay}>
-            <Text style={Styling.plusButtonText}>+</Text>
-          </TouchableOpacity>
-        )}
+    <View style={Styling.container}>
+      {savedWhiteboardContent !== '' && (
+        <View style={Styling.savedContentContainer}>
+          <Text style={Styling.savedContentText}>Sparat whiteboard-innehåll:</Text>
+          <Text style={Styling.savedContent}>{savedWhiteboardContent}</Text>
+        </View>
+      )}
 
-        {showOverlay && (
-          <View style={Styling.overlayContainer}>
-            <View style={Styling.overlay}>
-              <Text style={Styling.overlayText}>Skapa en ny whiteboard</Text>
-              <TouchableOpacity onPress={() => {toggleOverlay(); toggleInput();}} style={Styling.createButton}>
-                <Text style={Styling.createButtonText}>Skapa</Text>
-              </TouchableOpacity>
-            </View>
+      {!showInput && (
+        <TouchableOpacity style={Styling.plusButton} onPress={toggleOverlay}>
+          <Text style={Styling.plusButtonText}>+</Text>
+        </TouchableOpacity>
+      )}
+
+      {showOverlay && (
+        <View style={Styling.overlayContainer}>
+          <View style={Styling.overlay}>
+            <Text style={Styling.overlayText}>Skapa en ny whiteboard</Text>
+            <TouchableOpacity onPress={() => {toggleOverlay(); toggleInput();}} style={Styling.createButton}>
+              <Text style={Styling.createButtonText}>Skapa</Text>
+            </TouchableOpacity>
           </View>
-        )}
+        </View>
+      )}
 
-        {renderWhiteboard()}
+      {renderWhiteboard()}
 
-        <Modal visible={showPopup} transparent={true} animationType="fade">
+      <Modal visible={showPopup} transparent={true} animationType="fade">
+        <TouchableWithoutFeedback onPress={closePopup}>
           <View style={Styling.modalContainer}>
             <View style={Styling.popup}>
               <FontAwesome name="check" size={40} color="green" />
               <Text style={Styling.popupText}>Din whiteboard sparades</Text>
             </View>
           </View>
-        </Modal>
-      </View>
-    </TouchableWithoutFeedback>
+        </TouchableWithoutFeedback>
+      </Modal>
+    </View>
   );
 }

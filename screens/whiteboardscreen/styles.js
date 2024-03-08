@@ -3,11 +3,14 @@ var width = Dimensions.get('window').width;
 const Styling = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: 20,
     paddingBottom: 50,
   },
   plusButton: {
+    position: 'absolute',
+    bottom: 20,
     width: 50,
     height: 50,
     borderRadius: 25,
@@ -86,6 +89,26 @@ const Styling = StyleSheet.create({
     fontSize: 20,
     marginTop: 10,
     color: 'green',
+  },
+  savedContentContainer: {
+    backgroundColor: '#f0f0f0',
+    padding: 20,
+    borderRadius: 10,
+    marginBottom: 20,
+    alignItems: 'center',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: [{ translateX: -50 }, { translateY: -50 }],
+  },
+  savedContentText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  savedContent: {
+    fontSize: 16,
+    textAlign: 'center',
   },
   });
 
