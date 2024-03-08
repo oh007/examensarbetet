@@ -1,4 +1,4 @@
-import { View, Image, Text, TouchableOpacity } from 'react-native';
+import { ScrollView,View, Image, Text, TouchableOpacity } from 'react-native';
 import Styles from "./styles";
 import { useNavigation } from '@react-navigation/native';
 
@@ -9,7 +9,7 @@ export default function StartPage() {
 
       };
   return (
-    <View style={Styles.container}>
+    <ScrollView style={{alignContent:'center'}}>
     <View style={Styles.imageContainer}>
       <Image
         source={require('./../../assets/images/cover-img.jpg')}
@@ -23,6 +23,6 @@ export default function StartPage() {
         <Text style={Styles.buttonText}>Start</Text>
       </TouchableOpacity>
     </View>
-  </View>
+  </ScrollView>
   );
 }
